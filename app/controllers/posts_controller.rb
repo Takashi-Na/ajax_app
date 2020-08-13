@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     @posts = Post.all.order(id: "DESC")
   end
@@ -9,9 +10,10 @@ class PostsController < ApplicationController
   end
 
   def checked
+
     post = Post.find(params[:id])
     if post.checked then
-      post.update(checked: fales)
+      post.update(checked: false)
     else
       post.update(checked: true)
     end
@@ -19,4 +21,5 @@ class PostsController < ApplicationController
     item = Post.find(params[:id])
     render json: { post: item }
   end
+
 end
